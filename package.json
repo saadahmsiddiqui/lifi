@@ -1,0 +1,13 @@
+{
+  "name": "lifi",
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+	  "start-fe": "yarn workspace app dev",
+    "start-api": "yarn workspace api compile; yarn workspace api start"
+  },
+  "private": true,
+  "license": "MIT"
+}
