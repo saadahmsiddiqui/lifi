@@ -1,5 +1,3 @@
-import accountsRouter from './accounts';
+import accountsRouter from "./accounts";
 
-export {
-    accountsRouter
-};
+export { accountsRouter };

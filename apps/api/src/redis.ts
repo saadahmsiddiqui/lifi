@@ -1,15 +1,18 @@
-import { createClient } from 'redis';
+import { createClient } from "redis";
+
+let leaderBoardClient = null;
 
 async function setupLeaderBoardClient() {
-    const leaderBoardClient = createClient()
+  const client = createClient();
 
-    leaderBoardClient.on('error', err => {
-        console.error('RedisConnectionError', err);
-        // failure plan
-    });
+  client.on("error", (err) => {
+    console.error("RedisConnectionError", err);
+    // failure plan
+  });
 
-    await leaderBoardClient.connect();
-    return leaderBoardClient;
+  await client.connect();
+  leaderBoardClient = client;
+  return client;
 }
 
-export { setupLeaderBoardClient }
+export { setupLeaderBoardClient, leaderBoardClient };
