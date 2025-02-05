@@ -1,6 +1,6 @@
 import { FastifyInstance, FastifyServerOptions } from "fastify";
 import App from "./app";
-import { setupLeaderBoardClient } from "./redis";
+import { setupClient } from "./redis";
 import { config } from "dotenv";
 
 config();
@@ -13,7 +13,7 @@ const app: FastifyInstance = App(options);
 const port = Number(process.env.PORT);
 
 async function start() {
-  await setupLeaderBoardClient();
+  await setupClient();
 
   app.listen({ port }, (err) => {
     if (err) {

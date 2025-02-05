@@ -19,8 +19,8 @@ interface AlchemyBalancesResponse {
   id: string;
   result: {
     address: string;
-    tokenBalances: Array<{contractAddress: string; tokenBalance: string; }>
-  }
+    tokenBalances: Array<{ contractAddress: string; tokenBalance: string }>;
+  };
 }
 
 const getErc20Tokens = (address: string) =>
