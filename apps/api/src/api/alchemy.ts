@@ -14,11 +14,20 @@ const getTokenBalancesBody = (address: string) =>
     params: [address, "erc20"],
   });
 
+interface AlchemyBalancesResponse {
+  jsonrpc: string;
+  id: string;
+  result: {
+    address: string;
+    tokenBalances: Array<{contractAddress: string; tokenBalance: string; }>
+  }
+}
+
 const getErc20Tokens = (address: string) =>
   fetch(url(), {
     method: "POST",
     headers: headers,
     body: getTokenBalancesBody(address),
-  }).then((response) => response.json());
+  }).then((response) => response.json() as Promise<AlchemyBalancesResponse>);
 
-export { getErc20Tokens };
+export { getErc20Tokens, AlchemyBalancesResponse };
