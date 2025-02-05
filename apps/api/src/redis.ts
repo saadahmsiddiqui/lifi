@@ -1,6 +1,7 @@
 import { createClient } from "redis";
+import { RedisClientType } from "redis";
 
-let leaderBoardClient = null;
+let redisClient: RedisClientType | null = null;
 
 async function setupLeaderBoardClient() {
   const client = createClient();
@@ -11,8 +12,23 @@ async function setupLeaderBoardClient() {
   });
 
   await client.connect();
-  leaderBoardClient = client;
+  // @ts-ignore
+  redisClient = client;
   return client;
 }
 
-export { setupLeaderBoardClient, leaderBoardClient };
+async function getCachedBalances(address: string) {
+  if (redisClient) {
+    const cachedJson = await redisClient.json.get(address);
+
+    if (cachedJson) return cachedJson;
+  }
+}
+
+async function cacheBalance(address: string, data: string) {
+  if (redisClient) {
+    await redisClient.json.set(address, "$", data);
+  }
+}
+
+export { setupLeaderBoardClient, redisClient, getCachedBalances, cacheBalance };

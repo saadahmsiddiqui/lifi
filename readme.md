@@ -1,1 +1,1 @@
-docker run -d --name leaderboard -p 6379:6379 redis
+docker run -d --name lifi -p 6379:6379 -p 8001:8001 redis/redis-stack:latest

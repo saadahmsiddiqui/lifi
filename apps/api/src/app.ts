@@ -1,5 +1,5 @@
 import fastify, { FastifyServerOptions } from "fastify";
-import { accountsRouter } from "./routes";
+import { accountsRouter, tokensRouter } from "./routes";
 import { ACCOUNTS_CREATION_SCHEMA } from "./schemas/accounts";
 
 const App = (options: FastifyServerOptions) => {
@@ -24,6 +24,7 @@ const App = (options: FastifyServerOptions) => {
   });
 
   app.register(accountsRouter, { prefix: "/api/account" });
+  app.register(tokensRouter, { prefix: "/api/tokens" });
 
   return app;
 };

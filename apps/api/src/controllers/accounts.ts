@@ -7,7 +7,7 @@ import { createJWT } from "../services/jwt";
 export const handleCreate = async (
   request: AccountCreationRequest,
   reply: FastifyReply,
-): Promise<boolean> => {
+) => {
   const { signature, address } = request.body;
   const isValid = isValidSignature(signature, address);
   if (isValid) {
