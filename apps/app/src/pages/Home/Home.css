@@ -12,7 +12,3 @@
 .tokenBalancesContainer {
     overflow: scroll;
 }
-
-.tokenBalanceItem {
-    flex-shrink: 0;
-}
