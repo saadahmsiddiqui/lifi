@@ -32,3 +32,10 @@ VITE_MESSAGE_TO_SIGN="This is a LIFI Test"
 ```sh
 yarn start-api
 ```
+
+- Starting frontend
+```sh
+yarn start-fe
+```
+
+- navigate to https://localhost:5173 to use app
