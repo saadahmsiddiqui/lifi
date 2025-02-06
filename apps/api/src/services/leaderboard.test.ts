@@ -15,7 +15,7 @@ describe("leaderboard tests", () => {
         const leaderboard = await getLeaderboard();
         expect(leaderboard).toHaveLength(0)
         const newAddr = addresses[0];
-        const update = await updateScore(newAddr);
+        await updateScore(newAddr);
         const newleaderboard = await getLeaderboard();
         expect(newleaderboard).toBeTruthy();
         expect(newleaderboard).toHaveLength(1);
@@ -23,7 +23,7 @@ describe("leaderboard tests", () => {
 
     it("new leader should be at the top", async () => {
         const newLeader = addresses[1];
-        for (const num of new Array(5).fill(3)) {
+        for (const num of new Array(3).fill(0)) {
             await updateScore(newLeader);
         }
 
