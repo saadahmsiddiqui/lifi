@@ -23,25 +23,23 @@ describe("leaderboard tests", () => {
 
     it("new leader should be at the top", async () => {
         const newLeader = addresses[1];
-        for (const num of [1,2,3]) {
+        for (const num of new Array(5).fill(3)) {
             await updateScore(newLeader);
         }
 
         const leaderBoard = await getLeaderboard();
-        console.log(leaderBoard)
         expect(leaderBoard).toHaveLength(2);
-        expect(leaderBoard?.[1]).toEqual(newLeader)
+        expect(leaderBoard?.[0]).toEqual(newLeader)
     })
 
     it("old leader should be at the top", async () => {
         const newLeader = addresses[0];
-        for (const num of [1,2,3,4,5]) {
+        for (const num of new Array(5).fill(0)) {
             await updateScore(newLeader);
         }
 
         const leaderBoard = await getLeaderboard();
-        console.log(leaderBoard)
         expect(leaderBoard).toHaveLength(2);
-        expect(leaderBoard?.[1]).toEqual(newLeader)
+        expect(leaderBoard?.[0]).toEqual(newLeader)
     })
 })
