@@ -39,3 +39,18 @@ yarn start-fe
 ```
 
 - navigate to https://localhost:5173 to use app
+
+## Versions
+
+- yarn version `1.22.22`
+- node version `v20.18.2`
+
+
+## Some notes from me
+
+- I haven't handled account change handling in this test (out of scope, not mentioned, saving some time)
+- You will need redis as I am caching stuff
+- You will also need an ETH RPC URL, many from `chainlist.org` work well
+- Using `ethers` as I'm familiar with it on backend
+- You will need `reown` api key running frontend
+- I have not added `HTTP` tests
