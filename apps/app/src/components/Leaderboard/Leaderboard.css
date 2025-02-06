@@ -3,7 +3,7 @@
 }
 
 .tokensCard {
-    width: 35vw;
+    min-width: 50vw;
     height: 300px;
     display: flex;
     flex-direction: column;
@@ -15,4 +15,10 @@
 
 .tokenBalanceItem {
     flex-shrink: 0;
+}
+
+.tokenBalanceItem__addr {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
