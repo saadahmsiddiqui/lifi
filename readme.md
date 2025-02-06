@@ -14,14 +14,18 @@ yarn
 
 - setup `.env` file in `apps/api` directory with the following contents
 ```sh
-# jSON token secret key
 JWT_SECRET=""
-# server port
 PORT=3000
-# Alchemy API Key
 ALCHEMY_API_KEY=""
-# Ethereum RPC URL
 MAINNET_RPC=""
+MESSAGE_TO_SIGN="This is a LIFI Test"
+```
+
+- setup `.env` file in `apps/app` directory with the following contents
+```sh
+VITE_API_ENDPOINT=http://localhost:3000/
+VITE_RAINBOWKIT_PROJECT_ID=""
+VITE_MESSAGE_TO_SIGN="This is a LIFI Test"
 ```
 
 - Starting fastify API server
