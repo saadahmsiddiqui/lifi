@@ -1,0 +1,180 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2025-02-06T20:56:52.145Z",
+    "__export_source": "insomnia.desktop.app:v10.3.0",
+    "resources": [
+        {
+            "_id": "req_98123913054e477e8f0a973aa5a399f4",
+            "parentId": "wrk_10c699861a3e4bf7844659ee6b0f7abb",
+            "modified": 1738801017955,
+            "created": 1738800998316,
+            "url": "http://localhost:3000/api/leaderboard",
+            "name": "Get Leaderboard",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/10.3.0"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1738800998316,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "wrk_10c699861a3e4bf7844659ee6b0f7abb",
+            "parentId": null,
+            "modified": 1738787473607,
+            "created": 1738787473607,
+            "name": "Lifi Test",
+            "description": "",
+            "scope": "collection",
+            "_type": "workspace"
+        },
+        {
+            "_id": "req_1b90539adbbf4c4fbd61cd42570b9efc",
+            "parentId": "wrk_10c699861a3e4bf7844659ee6b0f7abb",
+            "modified": 1738793534963,
+            "created": 1738791491025,
+            "url": "http://localhost:3000/api/tokens",
+            "name": "List Tokens",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/10.3.0",
+                    "id": "pair_0a0980a7c0fe4223bde84e77cbfb6807"
+                },
+                {
+                    "id": "pair_8d0bdaa22a0a48559c5f9afa12cdd6c3",
+                    "name": "Authorization",
+                    "value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZGRyZXNzIjoiMHg5ODcyOWMwM2M0RDVlODIwRjVlOGM0NTU1OGFlMDdhRTYzRjk3NDYxIiwiaWF0IjoxNzM4NzkxNDc4fQ.VtRvVHClyJ73Q4sMnfuVS58SHE7ECCJ44JIodmf_p-8",
+                    "description": "",
+                    "disabled": false
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1738791491025,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_74f326201e864ca991ca4711d6816669",
+            "parentId": "wrk_10c699861a3e4bf7844659ee6b0f7abb",
+            "modified": 1738801104182,
+            "created": 1738801087272,
+            "url": "http://localhost:3000/api/leaderboard/updateScore",
+            "name": "Update Score in Leaderboard",
+            "description": "",
+            "method": "POST",
+            "body": {},
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/10.3.0",
+                    "id": "pair_0a0980a7c0fe4223bde84e77cbfb6807"
+                },
+                {
+                    "id": "pair_8d0bdaa22a0a48559c5f9afa12cdd6c3",
+                    "name": "Authorization",
+                    "value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZGRyZXNzIjoiMHg5ODcyOWMwM2M0RDVlODIwRjVlOGM0NTU1OGFlMDdhRTYzRjk3NDYxIiwiaWF0IjoxNzM4NzkxNDc4fQ.VtRvVHClyJ73Q4sMnfuVS58SHE7ECCJ44JIodmf_p-8",
+                    "description": "",
+                    "disabled": false
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1738789487708.5,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_0e073e73ac3043e1ae4f9e670ca4315f",
+            "parentId": "wrk_10c699861a3e4bf7844659ee6b0f7abb",
+            "modified": 1738791487479,
+            "created": 1738787484392,
+            "url": "http://localhost:3000/api/account/create",
+            "name": "Create Account",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"address\": \"0x98729c03c4D5e820F5e8c45558ae07aE63F97461\",\n\t\"signature\": \"0x32a8201dbc0a1bb2623fcd7eee9b7a02d787a7eb0f5da64cf9b3dc748176ec497a5a60b6aad58a6442fa5fb78ace399e3be972f48f565ac0831118c8748ccd3b1c\"\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/10.3.0"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1738787484392,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "env_7fad8c841c24664fd2eb478d5b0c9dddc52001ec",
+            "parentId": "wrk_10c699861a3e4bf7844659ee6b0f7abb",
+            "modified": 1738787473609,
+            "created": 1738787473609,
+            "name": "Base Environment",
+            "data": {},
+            "dataPropertyOrder": null,
+            "color": null,
+            "isPrivate": false,
+            "metaSortKey": 1738787473609,
+            "environmentType": "kv",
+            "_type": "environment"
+        },
+        {
+            "_id": "jar_7fad8c841c24664fd2eb478d5b0c9dddc52001ec",
+            "parentId": "wrk_10c699861a3e4bf7844659ee6b0f7abb",
+            "modified": 1738787473610,
+            "created": 1738787473610,
+            "name": "Default Jar",
+            "cookies": [],
+            "_type": "cookie_jar"
+        }
+    ]
+}
