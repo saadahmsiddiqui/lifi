@@ -7,7 +7,8 @@
   "scripts": {
 	  "start-fe": "yarn workspace app dev",
     "start-api": "yarn workspace api compile; yarn workspace api start",
-    "test-api": "cd apps/api; yarn jest"
+    "test-api": "cd apps/api; yarn jest",
+    "test-fe": "cd apps/app; yarn vitest"
   },
   "private": true,
   "license": "MIT"

@@ -54,3 +54,11 @@ yarn start-fe
 - Using `ethers` as I'm familiar with it on backend
 - You will need `reown` api key running frontend
 - I have not added `HTTP` tests
+- Leaderboard does not update in realtime
+
+## Test
+
+- Need a clean redis instance to be running to test leaderboard
+- `yarn install playwright` for testing front end
+- test frontend using `yarn test-fe`
+- test backend using `yarn test-api`
