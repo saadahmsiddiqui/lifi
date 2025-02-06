@@ -2,8 +2,9 @@ import { Flex } from "@radix-ui/themes";
 import { useAppContext } from "../../context/AppContext";
 import { useEffect } from "react";
 import { updateScore } from "../../lib/api";
+import Leaderboard from "../../components/Leaderboard/Leaderboard";
 
-function Leaderboard() {
+function LeaderboardPage() {
     const { loggedIn }= useAppContext();
 
     useEffect(() => {
@@ -14,9 +15,9 @@ function Leaderboard() {
 
     return (
         <Flex justify='center' align='center' >
-            Leaderboard
+            <Leaderboard />
         </Flex>
     );
 }
 
-export default Leaderboard;
+export default LeaderboardPage;

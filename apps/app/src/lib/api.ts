@@ -35,7 +35,7 @@ async function createAcount(address: string, signature: string) {
 }
 
 async function fetchLeaderboard(): Promise<string[]> {
-    const url = new URL("/api/leaderboard", import.meta.env.VITE_API_ENDPOINT);
+    const url = new URL("/api/leaderboard/", import.meta.env.VITE_API_ENDPOINT);
     return fetch(url, {
         method: "GET",
         headers: {

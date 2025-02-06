@@ -17,7 +17,7 @@ export const getLeaderboard = async (
   reply: FastifyReply,
 ) => {
   const leaderboard = await redisGetLeaderboard();
-  return reply.send(leaderboard);
+  return reply.send(leaderboard?.reverse());
 };
 
 export default {
