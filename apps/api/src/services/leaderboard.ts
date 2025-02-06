@@ -13,7 +13,7 @@ async function updateScore(address: string) {
 async function getLeaderboard() {
   if (redisClient) {
     const leaderBoard = await redisClient.zRange(SSET_KEY, 0, 100);
-    return leaderBoard;
+    return leaderBoard.reverse();
   }
 }
 

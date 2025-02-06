@@ -3,6 +3,7 @@ import { isValidSignature } from "./signature";
 
 describe("test signature", () => {
   it("should test", async () => {
+    process.env.MESSAGE_TO_SIGN = "This is a LIFI Test"
     // @ts-ignore
     const { Wallet } = jest.requireActual("ethers");
     const wallet = Wallet.createRandom();
