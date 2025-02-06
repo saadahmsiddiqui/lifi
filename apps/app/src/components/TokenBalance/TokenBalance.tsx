@@ -18,8 +18,8 @@ function TokenBalance({ decimals, tokenBalance, symbol, name }: TokenBalanceProp
     return (
         <Card className="tokenBalanceItem" mt="3">
             <Flex justify={'between'} flexShrink='0'>
-                <Flex>{name}</Flex>
-                <Flex>{balance} {symbol}</Flex>
+                <Flex className="tokenBalanceItem__name">{name}</Flex>
+                <Flex className="tokenBalanceItem__bal">{balance} {symbol}</Flex>
             </Flex>
         </Card>
     );

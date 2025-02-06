@@ -16,7 +16,7 @@ function Leaderboard({ leaderboard }: LeaderboardProps) {
                         return (
                             <Card className="tokenBalanceItem" key={addr} mt="3">
                                 <Flex justify={'between'} flexShrink='0'>
-                                    <Flex>{idx + 1}. {addr}</Flex>
+                                    <Flex className="tokenBalanceItem__addr" id={addr}>{idx + 1}. {addr}</Flex>
                                 </Flex>
                             </Card>
                         )
