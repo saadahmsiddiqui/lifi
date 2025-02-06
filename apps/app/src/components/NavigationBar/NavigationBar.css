@@ -1,0 +1,110 @@
+@import "@radix-ui/colors/black-alpha.css";
+@import "@radix-ui/colors/indigo.css";
+@import "@radix-ui/colors/mauve.css";
+@import "@radix-ui/colors/purple.css";
+@import "@radix-ui/colors/violet.css";
+
+/* reset */
+button,
+p {
+	all: unset;
+}
+
+.NavigationMenuRoot {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	z-index: 1;
+}
+
+.NavigationMenuList {
+	display: flex;
+    background-color: var(--color-panel);
+	justify-content: center;
+	padding: 4px;
+	border-radius: 6px;
+	list-style: none;
+	box-shadow: 0 2px 10px var(--black-a7);
+	margin: 0;
+}
+
+.NavigationMenuLogo {
+    margin: 3px 15px 0px 15px;
+}
+
+.NavigationMenuTrigger,
+.NavigationMenuLink {
+	padding: 8px 12px;
+	outline: none;
+	user-select: none;
+	font-weight: 500;
+	line-height: 1;
+	border-radius: 4px;
+	font-size: 15px;
+	color: var(--violet-11);
+}
+.NavigationMenuTrigger:focus,
+.NavigationMenuLink:focus {
+	box-shadow: 0 0 0 2px var(--violet-7);
+}
+.NavigationMenuTrigger:hover,
+.NavigationMenuLink:hover {
+	background-color: var(--violet-3);
+}
+
+.NavigationMenuLink {
+	display: block;
+	text-decoration: none;
+	font-size: 15px;
+	line-height: 1;
+}
+
+.NavigationMenuIndicator {
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	height: 10px;
+	top: 100%;
+	overflow: hidden;
+	z-index: 1;
+	transition:
+		width,
+		transform 250ms ease;
+}
+.NavigationMenuIndicator[data-state="visible"] {
+	animation: fadeIn 200ms ease;
+}
+.NavigationMenuIndicator[data-state="hidden"] {
+	animation: fadeOut 200ms ease;
+}
+
+.NavigationMenuViewport {
+	position: relative;
+	transform-origin: top center;
+	margin-top: 10px;
+	width: 100%;
+	background-color: white;
+	border-radius: 6px;
+	overflow: hidden;
+	box-shadow:
+		hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+		hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+	height: var(--radix-navigation-menu-viewport-height);
+	transition:
+		width,
+		height,
+		300ms ease;
+}
+.NavigationMenuViewport[data-state="open"] {
+	animation: scaleIn 200ms ease;
+}
+.NavigationMenuViewport[data-state="closed"] {
+	animation: scaleOut 200ms ease;
+}
+@media only screen and (min-width: 600px) {
+	.NavigationMenuViewport {
+		width: var(--radix-navigation-menu-viewport-width);
+	}
+}
+

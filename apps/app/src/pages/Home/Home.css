@@ -1,0 +1,14 @@
+.spinner {
+    display: inline-block;
+}
+
+.tokensCard {
+    width: 35vw;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tokenBalancesContainer {
+    overflow: scroll;
+}
