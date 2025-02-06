@@ -34,15 +34,27 @@ async function createAcount(address: string, signature: string) {
     });
 }
 
-async function fetchLeaderboard() {
+async function fetchLeaderboard(): Promise<string[]> {
     const url = new URL("/api/leaderboard", import.meta.env.VITE_API_ENDPOINT);
     return fetch(url, {
         method: "GET",
         headers: {
             'Content-type': 'application/json'
         }
+    }).then((response) => response.json() as Promise<string[]>);
+}
+
+async function updateScore() {
+    const url = new URL("/api/leaderboard/updateScore", import.meta.env.VITE_API_ENDPOINT);
+    return fetch(url, {
+        method: "POST",
+        body: JSON.stringify({}),
+        headers: {
+            'Content-type': 'application/json',
+            'Authorization': `bearer ${localStorage.getItem('token')}`
+        }
     }).then((response) => response.json());
 }
 
 
-export { createAcount, fetchTokenBalances, fetchLeaderboard };
+export { createAcount, fetchTokenBalances, fetchLeaderboard, updateScore };

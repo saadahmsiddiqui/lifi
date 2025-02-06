@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
 import { useAccount, useSignMessage } from "wagmi";
 import { createAcount } from "../api";
 import { useAppContext } from "../../context/AppContext";
@@ -7,16 +7,11 @@ export default function useAccountCreation() {
     const { address } = useAccount();
     const { signMessageAsync } = useSignMessage();
     const { setIsLoggedIn } = useAppContext();
-    const [accountCreationState, setAccountCreationState] = useState({
-        loading: true,
-        message: '',
-        error: null,
-        success: false
-    });
+    const { loggedIn, accountCreationState, setAccountCreationState } = useAppContext();
 
     const onMessageSigned = useCallback((signature: string) => {
-        if (address) {
-            setAccountCreationState({
+        if (address) { 
+            setAccountCreationState?.({
                 loading: true,
                 message: 'Logging in',
                 error: null,
@@ -24,14 +19,14 @@ export default function useAccountCreation() {
             })
             createAcount(address, signature).then((_data) => {
                 setIsLoggedIn?.(true);
-                setAccountCreationState({
+                setAccountCreationState?.({
                     loading: false,
                     message: 'Logged in',
                     error: null,
                     success: true
                 })
             }).catch((err) => {
-                setAccountCreationState({
+                setAccountCreationState?.({
                     loading: false,
                     message: 'Something went wrong, please try again later',
                     error: err,
@@ -42,8 +37,8 @@ export default function useAccountCreation() {
     }, [accountCreationState, address])
 
     useEffect(() => {
-        if (address) {
-            setAccountCreationState({
+        if (address && !loggedIn) {
+            setAccountCreationState?.({
                 loading: true,
                 message: 'Please sign message for authorization',
                 error: null,
@@ -55,20 +50,21 @@ export default function useAccountCreation() {
             }).then(signature => {
                 onMessageSigned(signature)
             }).catch((err) => {
-                setAccountCreationState({
+                setAccountCreationState?.({
                     loading: false,
                     message: 'Signing message failed',
                     error: err,
                     success: false
                 })
             })
-        } else {
-            setAccountCreationState({
+        } else if (!address) {
+            setAccountCreationState?.({
                 loading: false,
                 message: 'Please connect wallet',
                 error: null,
                 success:false
             })
+            setIsLoggedIn?.(false)
         }
 
     }, [address]);

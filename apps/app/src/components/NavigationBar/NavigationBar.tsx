@@ -1,6 +1,7 @@
 import { NavigationMenu, Avatar } from "radix-ui";
 import "./NavigationBar.css";
 import logoDark from "../../assets/logo-hdark.svg";
+import { Link } from "react-router-dom";
 
 const NavigationBar = () => {
     return (
@@ -23,18 +24,19 @@ const NavigationBar = () => {
 
                 <NavigationMenu.Item>
                     <NavigationMenu.Link
+                        asChild
                         className="NavigationMenuLink"
                     >
-                        Home
+                        <Link to="/">Home</Link>
                     </NavigationMenu.Link>
                 </NavigationMenu.Item>
 
 
                 <NavigationMenu.Item>
-                    <NavigationMenu.Link
+                    <NavigationMenu.Link asChild
                         className="NavigationMenuLink"
                     >
-                        Leaderboard
+                        <Link to="/leaderboard">Leaderboard</Link>
                     </NavigationMenu.Link>
                 </NavigationMenu.Item>
 

@@ -4,12 +4,20 @@ import useAccountCreation from "../../lib/hooks/useAccountCreation";
 import "./Home.css";
 import { useTokenBalances } from "../../lib/hooks/useTokenBalances";
 import { formatBalance } from "../../utils";
+import { useAccount } from "wagmi";
 
 function Home() {
+    const { address } = useAccount();
     const { message, error, loading } = useAccountCreation();
-    const { isFetching, data, error: tokenFetchError } = useTokenBalances();
+    const { isFetching, data } = useTokenBalances();
 
-    console.log(data, isFetching, tokenFetchError)
+    if (!address) {
+        return (
+            <Flex justify='center' align='center'>
+                <ConnectButton />
+            </Flex>
+        )
+    }
 
     if (loading || error) {
         return (<Flex justify='center' align='center'>
@@ -31,7 +39,7 @@ function Home() {
 
                 <Flex className="tokenBalancesContainer" direction="column" justify={isFetching ? "center" : undefined} align={isFetching ? "center" : undefined} flexGrow='1'>
                     {isFetching && <Flex justify='center' align='center'><Spinner className="spinner" size='3' /><Text ml={'2'}>Fetching Tokens</Text></Flex>}
-                    {data && data.balances.tokenBalances.length && data.balances.tokenBalances.map((token) => {
+                    {!isFetching && data && data.balances.tokenBalances.length && data.balances.tokenBalances.map((token) => {
                         return (
                             <Card className="tokenBalanceItem" key={token.contractAddress} mt="3">
                                 <Flex justify={'between'} flexShrink='0'>

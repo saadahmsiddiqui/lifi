@@ -25,7 +25,7 @@ const App = (options: FastifyServerOptions) => {
 
   app.register(accountsRouter, { prefix: "/api/account" });
   app.register(tokensRouter, { prefix: "/api/tokens" });
-  app.register(leaderboardRouter, { prefix: "/api/leaderboard" });
+  app.register(leaderboardRouter, { prefix: "/api/leaderboard/" });
 
   return app;
 };
